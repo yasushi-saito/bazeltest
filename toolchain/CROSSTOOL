@@ -1,0 +1,86 @@
+major_version: "local"
+minor_version: ""
+default_target_cpu: "same_as_host"
+
+default_toolchain {
+  cpu: "k8"
+  toolchain_identifier: "test-toolchain"
+}
+
+toolchain {
+  toolchain_identifier: "test-toolchain"
+  abi_version: "local"
+  abi_libc_version: "local"
+  builtin_sysroot: ""
+  compiler: "compiler"
+  host_system_name: "local"
+  needsPic: true
+  supports_gold_linker: true
+  supports_incremental_linker: false
+  supports_fission: false
+  supports_interface_shared_objects: false
+  supports_normalizing_ar: false
+  supports_start_end_lib: true
+  target_libc: "local"
+  target_cpu: "k8"
+  target_system_name: "local"
+  cxx_flag: "-std=c++11"
+  linker_flag: "-lstdc++"
+  linker_flag: "-lm"
+  linker_flag: "-fuse-ld=gold"
+  linker_flag: "-B/usr/bin"
+  linker_flag: "-Wl,--build-id=md5"
+  linker_flag: "-Wl,--hash-style=gnu"
+  cxx_builtin_include_directory: "/usr/include/c++/4.9"
+  cxx_builtin_include_directory: "/usr/lib/gcc/x86_64-linux-gnu/4.9/include"
+  cxx_builtin_include_directory: "/usr/include/x86_64-linux-gnu/c++/4.9"
+  cxx_builtin_include_directory: "/usr/lib/gcc/x86_64-linux-gnu/4.9/include-fixed"
+  cxx_builtin_include_directory: "/usr/include/c++/4.9/backward"
+  cxx_builtin_include_directory: "/usr/local/include"
+  cxx_builtin_include_directory: "/usr/include/x86_64-linux-gnu"
+  cxx_builtin_include_directory: "/usr/include"
+  cxx_builtin_include_directory: "/opt/intel/compilers_and_libraries_2017.4.196/linux/mkl/include"
+  cxx_builtin_include_directory: "/opt/intel/compilers_and_libraries_2017.5.239/linux/mkl/include"
+  objcopy_embed_flag: "-I"
+  objcopy_embed_flag: "binary"
+  unfiltered_cxx_flag: "-Wno-builtin-macro-redefined"
+  unfiltered_cxx_flag: "-D__DATE__=\"redacted\""
+  unfiltered_cxx_flag: "-D__TIMESTAMP__=\"redacted\""
+  unfiltered_cxx_flag: "-D__TIME__=\"redacted\""
+  compiler_flag: "-U_FORTIFY_SOURCE"
+  compiler_flag: "-fstack-protector"
+  compiler_flag: "-Wall"
+  compiler_flag: "-B/usr/bin"
+  compiler_flag: "-B/usr/bin"
+  compiler_flag: "-fno-omit-frame-pointer"
+  compiler_flag: "-I/opt/intel/compilers_and_libraries_2017.4.196/linux/mkl/include"
+  compiler_flag: "-I/opt/intel/compilers_and_libraries_2017.5.239/linux/mkl/include"
+  tool_path {name: "ld" path: "/usr/bin/ld" }
+  tool_path {name: "cpp" path: "/usr/bin/cpp" }
+  tool_path {name: "dwp" path: "/usr/bin/dwp" }
+  tool_path {name: "gcov" path: "/usr/bin/gcov" }
+  tool_path {name: "nm" path: "/usr/bin/gcc-nm-4.9" }
+  tool_path {name: "objcopy" path: "/usr/bin/objcopy" }
+  tool_path {name: "objdump" path: "/usr/bin/objdump" }
+  tool_path {name: "strip" path: "/usr/bin/strip" }
+  tool_path {name: "gcc" path: "cc_wrapper.sh" }
+  tool_path {name: "ar" path: "/usr/bin/ar" }
+
+  compilation_mode_flags {
+    mode: DBG
+    compiler_flag: "-g"
+  }
+
+  compilation_mode_flags {
+    mode: OPT
+    compiler_flag: "-g0"
+    compiler_flag: "-O2"
+    compiler_flag: "-D_FORTIFY_SOURCE=1"
+    compiler_flag: "-DNDEBUG"
+    compiler_flag: "-ffunction-sections"
+    compiler_flag: "-fdata-sections"
+    linker_flag: "-Wl,--gc-sections"
+  }
+
+  linking_mode_flags { mode: DYNAMIC }
+}
